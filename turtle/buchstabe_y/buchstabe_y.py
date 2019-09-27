@@ -131,7 +131,7 @@ def buchstabe_y():
     zeichne_hintergrund()
 
     # Wir setzen die Geschwindigkeit wieder auf ein normales Niveau zurück
-    turtle.speed(5)
+    turtle.speed("normal")
 
     # Wir zeichnen unser eigentliches Y. Dies machen wir zweimal leicht versetzt mit unterschiedlichen Farben um ein "Schatteneffekt" zu erzeugen :)
     for i in range(2):
