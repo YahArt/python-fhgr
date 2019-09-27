@@ -6,10 +6,10 @@ def buchstabe_y():
     rahmen_hoehe= 400
 
     # Ein paar Farben welche wir für die Quadrate des Hintergrunds benutzen, weitere Farben können folgender URL entnommen werden: https://ecsdtech.com/8-pages/121-python-turtle-colors?source=post_page-----52cb0939d125----------------------
-    quadrat_farben = ["Snow", "Gainsboro"]
+    quadrat_farben = ["#E8E2DB", "#1A3263"]
 
     # Die Breite eines einzelnen Quadrates unsereres Hintergunds
-    quadrat_breite = 50
+    quadrat_breite = 100
 
     # Wir merken uns zuerst mal unsere aktuelle start position in x und y um einfach wieder zurückkehren zu können
     start_x = turtle.xcor()
@@ -20,8 +20,8 @@ def buchstabe_y():
     strich_dicke = 10
     text_groesse = 196
     font = "Arial"
-    fuell_farbe_y = "black"
-    schatten_farbe_y = "white"
+    fuell_farbe_y = "#F5564E"
+    schatten_farbe_y = "#FAB95B"
     text_stil = "bold" # kursiv
 
     # Die Position bei welcher wir beginnen das "Y" zu zeichnen.
@@ -127,7 +127,7 @@ def buchstabe_y():
 
 
     # Wir beschleunigen das Zeichnen des Hintergrunds ein wenig :)
-    turtle.speed(1000)
+    turtle.speed("fastest")
     zeichne_hintergrund()
 
     # Wir setzen die Geschwindigkeit wieder auf ein normales Niveau zurück
