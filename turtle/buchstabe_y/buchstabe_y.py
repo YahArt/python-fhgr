@@ -6,7 +6,7 @@ def buchstabe_y():
     rahmen_hoehe= 400
 
     # Ein paar Farben welche wir für die Quadrate des Hintergrunds benutzen, weitere Farben können folgender URL entnommen werden: https://ecsdtech.com/8-pages/121-python-turtle-colors?source=post_page-----52cb0939d125----------------------
-    quadrat_farben = ["Lavender", "Lavender Blush"]
+    quadrat_farben = ["Snow", "Gainsboro"]
 
     # Die Breite eines einzelnen Quadrates unsereres Hintergunds
     quadrat_breite = 50
@@ -15,9 +15,19 @@ def buchstabe_y():
     start_x = turtle.xcor()
     start_y = turtle.ycor()
 
+
+    # Diese Variablen definieren das Aussehen unseres "Y"
+    strich_dicke = 10
+    text_groesse = 196
+    font = "Arial"
+    fuell_farbe_y = "black"
+    schatten_farbe_y = "white"
+    text_stil = "bold" # kursiv
+
     # Die Position bei welcher wir beginnen das "Y" zu zeichnen.
-    x_position_y_zeichnung = start_x + 95
-    y_position_y_zeichnung = start_y + 50
+    x_position_y_zeichnung = start_x + (rahmen_breite - text_groesse) * 0.5
+    y_position_y_zeichnung = start_y + (rahmen_hoehe - text_groesse) * 0.3
+
 
     def zeichne_rechteck(breite, hoehe, fuell_farbe, rahmen_breite = 1):
         turtle.pensize(rahmen_breite)
@@ -101,46 +111,23 @@ def buchstabe_y():
         # Kehre zur Startposition for dem eigentlichen Zeichnen zurück...
         absolute_bewegung_ohne_zu_zeichnen(start_x, start_y)
 
-    def zeichne_cooles_y(x, y, fuell_farbe, rahmen_farbe = "black", rahmen_breite = 1):
+    def zeichne_cooles_y(x, y, farbe, strich_dicke, text_groesse, font):
 
         absolute_bewegung_ohne_zu_zeichnen(x, y)
 
-        turtle.pensize(rahmen_breite)
-        turtle.pencolor(rahmen_farbe)
-        turtle.fillcolor(fuell_farbe)
-        turtle.begin_fill()
+        turtle.pensize(strich_dicke)
+        turtle.pencolor(farbe)
 
-        turtle.left(90)
-        turtle.forward(200)
-        turtle.left(45)
-        turtle.forward(130)
-        turtle.right(135)
-        turtle.forward(50)
-        turtle.right(45)
-        turtle.forward(130)
-        turtle.left(90)
-        turtle.forward(130)
-        turtle.right(45)
-        turtle.forward(50)
-        turtle.right(135)
-        turtle.forward(130)
-        turtle.left(45)
-        turtle.forward(200)
-        turtle.right(90)
-        turtle.forward(100)
-
-        turtle.end_fill()
-
-        # Wir stellen sicher, dass wir wieder nach Rechts ausgerichtet sind...
-        turtle.right(180)
-
+        # Turtle erlaubt es uns auch Buchstaben mit Hilfe einer Font zu zeichnen (https://stackoverflow.com/questions/15141031/python-turtle-draw-text-with-on-screen-with-larger-font) :)
+        turtle.write("Y", font=(font, text_groesse, text_stil))
 
 
     # Hier beginnt nun unsere eigentliche Arbeit...
-    zeichne_rechteck(rahmen_breite, rahmen_hoehe, "Lemon Chiffon", 5)
+    zeichne_rechteck(rahmen_breite, rahmen_hoehe, "white", 5)
+
 
     # Wir beschleunigen das Zeichnen des Hintergrunds ein wenig :)
-    turtle.speed(10)
+    turtle.speed(1000)
     zeichne_hintergrund()
 
     # Wir setzen die Geschwindigkeit wieder auf ein normales Niveau zurück
@@ -149,15 +136,16 @@ def buchstabe_y():
     # Wir zeichnen unser eigentliches Y. Dies machen wir zweimal leicht versetzt mit unterschiedlichen Farben um ein "Schatteneffekt" zu erzeugen :)
     for i in range(2):
         # Die eigentliche Füllfarbe des Y
-        color = "Indian Red"
+        farbe = fuell_farbe_y
         if i % 2 == 0:
             # Die Schattenfarbe
-            color = "Rosy Brown"
+            farbe = schatten_farbe_y
 
         # Wir definiere einen Offset um einen Schatteneffekt zu bekommmen...
         x = x_position_y_zeichnung + (i* 9)
         y = y_position_y_zeichnung
-        zeichne_cooles_y(x, y, color, color, 0)
+        zeichne_cooles_y(x, y, farbe, strich_dicke, text_groesse, font)
+
 
     # Wir stellen sicher, dass wir an der korrekten Endposition sind...
     absolute_bewegung_ohne_zu_zeichnen(start_x + rahmen_breite, start_y)
@@ -166,6 +154,7 @@ def buchstabe_y():
     turtle.pencolor("black")
     turtle.fillcolor("white")
     turtle.pensize(1)
+
 
 # Zeit unser Y zu zeichnen :)
 buchstabe_y()
