@@ -1,14 +1,12 @@
 def berechne_taxi_preis(tageszeit, distanz):
-    start_preis = 0
-    preis_pro_kilometer = 0
+
+    # Wir nehmen an es ist Nacht
+    start_preis = 10
+    preis_pro_kilometer = 4
 
     if tageszeit == "Tag":
         start_preis = 8
         preis_pro_kilometer = 3
-    else:
-        # Wir nehmen an es ist Nacht
-        start_preis = 10
-        preis_pro_kilometer = 4
 
     # Die ersten zwei Kilometer sind gratis
     distanz = distanz - 2

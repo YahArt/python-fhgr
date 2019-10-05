@@ -1,0 +1,5 @@
+text = input("Please enter a text: ")
+words = text.split()
+unique_words = set(words)
+number_of_unique_words = len(unique_words)
+print("There are", number_of_unique_words, "unique words in your text.")
